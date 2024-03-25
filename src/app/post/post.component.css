@@ -1,0 +1,11 @@
+.card.mb-3 {
+   box-shadow: 0 0 5px 0 #333;
+}
+
+.post-date {
+   font-size: .8rem;
+}
+
+.post-author {
+   font-size: 1.1rem;
+}

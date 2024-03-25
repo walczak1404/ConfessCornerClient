@@ -1,0 +1,17 @@
+ul {
+   list-style-type: none;
+   padding: 0;
+}
+
+.post-container {
+   text-align: center;
+}
+
+.post-container > * {
+   text-align: left;
+}
+
+.btn {
+   background-color: #4a596d;
+   color: white;
+}

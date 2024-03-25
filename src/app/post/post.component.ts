@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Post } from '../models/post.model';
 
 @Component({
@@ -6,6 +6,11 @@ import { Post } from '../models/post.model';
   templateUrl: './post.component.html',
   styleUrl: './post.component.css'
 })
-export class PostComponent {
-  @Input() post: Post;
+export class PostComponent implements OnInit {
+  @Input() post!: Post;
+  convertedDate: string;
+
+  ngOnInit(): void {
+    this.convertedDate = this.post.CreatedOn.split("T")[0];
+  }
 }

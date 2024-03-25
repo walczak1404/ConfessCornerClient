@@ -1,0 +1,31 @@
+.custom-form {
+   background-color: #fff;
+   padding: 20px;
+   border-radius: 5px;
+   box-shadow: 0 0 5px 0 #333;
+}
+
+.custom-form-input {
+   background-color: #eee;
+   border-color: #4a596d;
+}
+
+.custom-form-input::placeholder {
+   color: grey;
+}
+
+.centered-buttons {
+   text-align: center;
+}
+
+.form-label {
+   font-weight: bold;
+}
+
+textarea {
+   resize: none;
+}
+
+.help-block {
+   color: red;
+}

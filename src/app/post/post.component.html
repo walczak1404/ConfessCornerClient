@@ -2,13 +2,14 @@
    <div class="card-body">
       <div class="row row-cols-2">
          <h2 class="card-title col">
-            {{post}}
+            {{post.Header}}
          </h2>
           <div class="col">
             <span class="badge bg-secondary float-end"><i class="fa-solid fa-comment comment-icon"></i> 10</span>
           </div>
       </div>
-     <h6 class="card-subtitle mb-2 text-muted">Autor posta 1</h6>
-     <p class="card-text">Treść posta 1</p>
+     <h3 class="card-subtitle mb-2 post-author" [ngClass]="{'text-muted': !post.Author}"><i class="fa-solid fa-user"></i> {{post.Author || "Anonymous person"}}</h3>
+     <p class="mb-2 post-date"><i class="fa-solid fa-calendar"></i> {{convertedDate}}</p>
+     <p class="card-text">{{post.Content}}</p>
    </div>
 </div>

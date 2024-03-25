@@ -1,4 +1,11 @@
+<div class="text-center mb-3">
+  <a routerLink="/add-post" class="btn">Add new post</a>
+</div>
 <div class="col-md-8 offset-md-2 post-container">
-  <app-post post="post1"></app-post>
-  <app-post post="poscik2"></app-post>
+  <ul *ngIf="!isLoading">
+    <li>
+      <app-post *ngFor="let post of postList" [post]="post"></app-post>
+    </li>
+  </ul>
+  <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
 </div>
