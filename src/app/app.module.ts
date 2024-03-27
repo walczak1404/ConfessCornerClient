@@ -9,6 +9,9 @@ import { PostsListComponent } from './posts-list/posts-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { AddPostFormComponent } from './add-post-form/add-post-form.component';
+import { ErrorPopupComponent } from './error-popup/error-popup.component';
+import { BackdropComponent } from './backdrop/backdrop.component';
+import { PostCommentsComponent } from './post-comments/post-comments.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { AddPostFormComponent } from './add-post-form/add-post-form.component';
     HeaderComponent,
     PostsListComponent,
     LoadingSpinnerComponent,
-    AddPostFormComponent
+    AddPostFormComponent,
+    ErrorPopupComponent,
+    BackdropComponent,
+    PostCommentsComponent
   ],
   imports: [
     BrowserModule,

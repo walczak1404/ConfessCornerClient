@@ -29,3 +29,7 @@ textarea {
 .help-block {
    color: red;
 }
+
+.alert.alert-danger {
+   text-align: center;
+}

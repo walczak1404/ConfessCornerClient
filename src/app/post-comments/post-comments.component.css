@@ -1,0 +1,36 @@
+.card.mt-3 {
+   border: none;
+}
+
+.list-group-item {
+   padding:  10px 0;
+}
+
+.author-input {
+   height: 25px;
+   width: 50%;
+}
+
+.content-input {
+   resize: none;
+}
+
+.content-input::-webkit-scrollbar {
+   width: 5px;
+}
+
+.content-input::-webkit-scrollbar-thumb {
+   background: #4a596d;
+   border-radius: 5px;
+}
+
+h6 {
+   border-top: 1px solid #dee2e6;
+   padding-left: 1rem;
+   padding-top: 5px;
+   padding-bottom: 0;
+}
+
+form {
+   border-bottom: 1px solid #dee2e6;
+}

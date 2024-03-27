@@ -15,3 +15,11 @@ ul {
    background-color: #4a596d;
    color: white;
 }
+
+ul {
+   margin-top: 20px;
+}
+
+.alert.alert-danger {
+   text-align: center;
+}
