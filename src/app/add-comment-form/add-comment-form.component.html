@@ -1,0 +1,19 @@
+<div class="row align-items-center justify-content-between comments-header-container">
+   <h5 class="comments-header col">Add comment</h5>
+   <div class="col col-3 add-comment-form-btn-container text-end">
+     <button class="btn btn-sm add-comment-form-btn" (click)="stopAddingComment()">
+       <i class="fa-solid fa-minus"></i>
+     </button>
+   </div>
+ </div>
+<form class="p-3" (ngSubmit)="submitCommentAdd()" #form="ngForm" *ngIf="!errorMsg">
+   <div class="row author-and-send">
+      <input type="text" class="form-control mb-2 author-input" id="author" placeholder="Enter name" name="author" [ngModel]="defaultAuthor" #author="ngModel" maxlength="20">
+      <button type="submit" class="btn"><i class="fa-solid fa-paper-plane"></i></button>
+      <p class="help-block" *ngIf="author.errors?.hasOwnProperty('maxlength') && (author.touched || form.submitted)">Name cannot be longer than 20 characters</p>
+   </div>
+   <textarea class="form-control mb-2 content-input" rows="3" placeholder="Comment" id="content" name="content" ngModel #content="ngModel" required maxlength="200"></textarea>
+   <p class="help-block" *ngIf="content.errors?.hasOwnProperty('required') && (content.touched || form.submitted)">Comment is required</p>
+   <p class="help-block" *ngIf="content.errors?.hasOwnProperty('maxlength') && (content.touched || form.submitted)">Comment cannot be longer than 200 characters</p>
+</form>
+<p class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</p>

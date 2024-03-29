@@ -1,0 +1,77 @@
+.comments-header-container, form {
+   background-color: #eee;
+}
+
+.btn {
+   width: 10%;
+   height: 25px;
+   margin-left: 10px;
+   background-color: #4a596d;
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   color: white;
+}
+
+.author-and-send {
+   margin: 0;
+}
+
+.author-input {
+   height: 25px;
+   width: 50%;
+   min-width: 170px;
+}
+
+.content-input {
+   resize: none;
+}
+
+.add-comment-form-btn-container {
+   justify-content: flex-end;
+}
+
+.add-comment-form-btn {
+   background-color: #4a596d;
+   color: white;
+   height: 30px;
+   width: 30px;
+   margin-right: 1rem;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 50%;
+}
+
+.comments-header {
+   padding-left: 1.5rem;
+   margin-top: 10px;
+}
+
+.comments-header-container {
+   border-top: 1px solid #dee2e6;
+}
+
+.content-input::-webkit-scrollbar {
+   width: 5px;
+}
+
+.content-input::-webkit-scrollbar-thumb {
+   background: #4a596d;
+   border-radius: 5px;
+}
+
+.help-block {
+   color: red;
+   padding-left: 0;
+   font-size: .9rem;
+}
+
+.form-control {
+   font-size: .9rem;
+}
+
+.alert.alert-danger {
+   margin: 0 10px;
+   text-align: center;
+}

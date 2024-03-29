@@ -1,16 +1,16 @@
-<div class="card mb-3">
+<div class="card mb-3 post-container">
    <div class="card-body">
       <div class="row row-cols-2">
          <h2 class="card-title col">
             {{post.Header}}
          </h2>
           <div class="col">
-            <span class="badge bg-secondary float-end"><i class="fa-solid fa-comment comment-icon"></i> {{commentsAmount}}</span>
+            <span class="badge bg-secondary float-end comments-amount" [ngClass]="{'comments-amount-open': commentsOpen}" (click)="openComments()"><i class="fa-solid fa-comment comment-icon"></i> {{commentsAmount}}</span>
           </div>
       </div>
      <h3 class="card-subtitle mb-2 post-author" [ngClass]="{'text-muted': !post.Author}"><i class="fa-solid fa-user"></i> {{post.Author || "Anonymous person"}}</h3>
      <p class="mb-2 post-date"><i class="fa-solid fa-clock"></i> {{convertedDate}} ago</p>
      <p class="card-text">{{post.Content}}</p>
    </div>
-   <app-post-comments></app-post-comments>
+   <app-post-comments *ngIf="commentsOpen" [postId]="post.ConfessionId"></app-post-comments>
 </div>

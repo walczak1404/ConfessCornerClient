@@ -12,6 +12,7 @@ import { AddPostFormComponent } from './add-post-form/add-post-form.component';
 import { ErrorPopupComponent } from './error-popup/error-popup.component';
 import { BackdropComponent } from './backdrop/backdrop.component';
 import { PostCommentsComponent } from './post-comments/post-comments.component';
+import { AddCommentFormComponent } from './add-comment-form/add-comment-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PostCommentsComponent } from './post-comments/post-comments.component';
     AddPostFormComponent,
     ErrorPopupComponent,
     BackdropComponent,
-    PostCommentsComponent
+    PostCommentsComponent,
+    AddCommentFormComponent
   ],
   imports: [
     BrowserModule,

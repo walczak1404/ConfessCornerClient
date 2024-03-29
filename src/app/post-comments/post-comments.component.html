@@ -1,24 +1,24 @@
-<h6>Add new comment</h6>
-<form class="p-3">
-   <input type="text" class="form-control mb-2 author-input" placeholder="Your Name">
-   <textarea class="form-control mb-2 content-input" rows="3" placeholder="Comment"></textarea>
-   <button type="submit" class="btn btn-sm btn-primary">Add Comment</button>
- </form>
- 
- 
- <div class="card mt-3">
-   <div class="card-body">
-     <ul class="list-group list-group-flush">
-       <li class="list-group-item">
-         <strong>John Doe</strong>
-         <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-       </li>
-       <li class="list-group-item">
-         <strong>Jane Smith</strong>
-         <div>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-       </li>
-       <!-- Add more comments here -->
-     </ul>
-   </div>
- </div>
+<app-add-comment-form *ngIf="addingComment" (commentsAddingFinished)="changeAddingCommentState($event)" [postId]="postId"></app-add-comment-form>
+<div class="comments-component-container">
+  <div class="row align-items-center justify-content-between comments-header-container">
+    <h5 class="comments-header col">Comments</h5>
+    <div class="col-3 add-comment-form-btn-container text-end">
+      <button class="btn btn-sm add-comment-form-btn" *ngIf="!addingComment" (click)="changeAddingCommentState(false)">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    </div>
+  </div>
+  <div class="card comments-container" *ngIf="!isLoading">
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let comment of commentsList">
+          <p class="comment-author">{{comment.author}}</p>
+          <p class="time-display"><i class="fa-solid fa-clock"></i> {{comment.formattedDate}} ago</p>
+          <div>{{comment.content}}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+</div>
  

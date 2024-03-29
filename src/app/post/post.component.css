@@ -9,3 +9,20 @@
 .post-author {
    font-size: .9rem;
 }
+
+.card-body {
+   margin-bottom: 10px;
+}
+
+.comments-amount {
+   cursor: pointer;
+   user-select: none;
+}
+
+.comments-amount-open {
+   background-color: #39424a !important;
+}
+
+.post-container {
+   overflow: hidden;
+}

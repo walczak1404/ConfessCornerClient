@@ -1,27 +1,29 @@
-.card.mt-3 {
+.comments-component-container, .comments-container, .list-group-item {
+   background-color: #eee;
+}
+
+.comments-container {
    border: none;
+   max-height: 500px;
+   overflow-y: auto;
+}
+
+.comments-container::-webkit-scrollbar {
+   width: 5px;
+}
+
+.comments-container::-webkit-scrollbar-thumb {
+   background: #4a596d;
+   border-radius: 5px;
 }
 
 .list-group-item {
    padding:  10px 0;
 }
 
-.author-input {
-   height: 25px;
-   width: 50%;
-}
-
-.content-input {
-   resize: none;
-}
-
-.content-input::-webkit-scrollbar {
-   width: 5px;
-}
-
-.content-input::-webkit-scrollbar-thumb {
-   background: #4a596d;
-   border-radius: 5px;
+.card-body {
+   margin-top: 0;
+   padding-top: 0;
 }
 
 h6 {
@@ -33,4 +35,39 @@ h6 {
 
 form {
    border-bottom: 1px solid #dee2e6;
+}
+
+.time-display {
+   font-size: .75rem;
+   margin: 2px;
+}
+
+.add-comment-form-btn-container {
+   justify-content: flex-end;
+}
+
+.add-comment-form-btn {
+   background-color: #4a596d;
+   color: white;
+   height: 30px;
+   width: 30px;
+   margin-right: 1rem;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 50%;
+}
+
+.comments-header {
+   padding-left: 1.5rem;
+   margin-top: 10px;
+}
+
+.comments-header-container {
+   border-top: 1px solid #dee2e6;
+}
+
+.comment-author {
+   font-weight: bold;
+   margin-bottom: 0;
 }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, HostListener } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Post } from '../models/post.model';
-import { map } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { EventService } from '../services/event.service';
 
 @Component({
