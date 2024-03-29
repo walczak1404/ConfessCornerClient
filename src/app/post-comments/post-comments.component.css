@@ -38,7 +38,7 @@ form {
 }
 
 .time-display {
-   font-size: .75rem;
+   font-size: .7rem;
    margin: 2px;
 }
 
@@ -69,5 +69,6 @@ form {
 
 .comment-author {
    font-weight: bold;
+   font-size: .9rem;
    margin-bottom: 0;
 }

@@ -12,7 +12,7 @@
     <div class="card-body">
       <ul class="list-group list-group-flush">
         <li class="list-group-item" *ngFor="let comment of commentsList">
-          <p class="comment-author">{{comment.author}}</p>
+          <p class="comment-author" [ngClass]="{'text-muted': !comment.author}">{{comment.author || "Anonymous"}}</p>
           <p class="time-display"><i class="fa-solid fa-clock"></i> {{comment.formattedDate}} ago</p>
           <div>{{comment.content}}</div>
         </li>
