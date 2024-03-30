@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { EventService } from '../services/event.service';
 
 @Component({
   selector: 'app-add-comment-form',
@@ -11,16 +12,13 @@ import { HttpClient } from '@angular/common/http';
 export class AddCommentFormComponent {
   @ViewChild("form", {static: false}) form: NgForm;
   @Input() postId;
-  @Output() commentsAddingFinished = new EventEmitter<boolean>();
   defaultAuthor = localStorage.getItem("defaultAuthor");
   errorMsg: string;
 
-  constructor(private http: HttpClient) {
-    
-  }
+  constructor(private http: HttpClient, private eventService: EventService) { }
 
   stopAddingComment() {
-    this.commentsAddingFinished.emit(false);
+    this.eventService.commentsAddingFinished.next(false);
   }
 
   submitCommentAdd() {
@@ -33,7 +31,7 @@ export class AddCommentFormComponent {
       }).subscribe({
         next: () => {
           localStorage.setItem("defaultAuthor", this.form.value.author);
-          this.commentsAddingFinished.emit(true);
+          this.eventService.commentsAddingFinished.next(true);
         },
         error: error => {
           console.log(error.error.errors);

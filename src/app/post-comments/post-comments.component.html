@@ -1,4 +1,4 @@
-<app-add-comment-form *ngIf="addingComment" (commentsAddingFinished)="changeAddingCommentState($event)" [postId]="postId"></app-add-comment-form>
+<app-add-comment-form *ngIf="addingComment" [postId]="postId"></app-add-comment-form>
 <div class="comments-component-container">
   <div class="row align-items-center justify-content-between comments-header-container">
     <h5 class="comments-header col">Comments</h5>

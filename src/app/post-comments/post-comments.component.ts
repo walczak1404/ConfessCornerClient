@@ -1,29 +1,39 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
 import { DateFormatterService } from '../services/date-formatter.service';
+import { EventService } from '../services/event.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-post-comments',
   templateUrl: './post-comments.component.html',
   styleUrl: './post-comments.component.css'
 })
-export class PostCommentsComponent implements OnInit {
+export class PostCommentsComponent implements OnInit, OnDestroy {
   addingComment = false;
   @Input() postId!:string;
   commentsList: {author?: string, content: string, formattedDate: string}[] = [];
   errorMsg: string;
   isLoading = true;
+  addCommentEvent: Subscription;
 
-  constructor(private http: HttpClient, private dateFormatter: DateFormatterService) {}
+  constructor(private http: HttpClient, private dateFormatter: DateFormatterService, private eventService: EventService) {}
 
-  async ngOnInit() {
+  ngOnInit() {
       this.fetchComments();
+      this.addCommentEvent = this.eventService.commentsAddingFinished.subscribe({
+        next: (response: boolean) => {this.changeAddingCommentState(response)}
+      })
   }
 
-  changeAddingCommentState($event) {
-    if($event) {
+  ngOnDestroy() {
+    this.addCommentEvent.unsubscribe();
+  }
+
+  changeAddingCommentState(isAdded: boolean) {
+    if(isAdded) {
       this.fetchComments();
     }
 

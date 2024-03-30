@@ -6,4 +6,5 @@ import { Subject } from 'rxjs';
 })
 export class EventService {
   popupClosed = new Subject<boolean>();
+  commentsAddingFinished = new Subject<boolean>();
 }

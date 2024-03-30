@@ -1,22 +1,24 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Post } from '../models/post.model';
 import { map } from 'rxjs/operators';
 import { EventService } from '../services/event.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-posts-list',
   templateUrl: './posts-list.component.html',
   styleUrl: './posts-list.component.css'
 })
-export class PostsListComponent implements OnInit {
+export class PostsListComponent implements OnInit, OnDestroy {
   postList: Post[] = [];
   areMorePostsAvailable = true;
   page = 1;
   isLoading: boolean;
   pageScroll = 0;
   errorMsg: string;
+  scrollEvent: Subscription;
 
   constructor(private httpClient: HttpClient, private eventService: EventService) {}
 
@@ -38,9 +40,13 @@ export class PostsListComponent implements OnInit {
   
   ngOnInit() {
     this.fetchPosts();
-    this.eventService.popupClosed.subscribe(data => {
+    this.scrollEvent = this.eventService.popupClosed.subscribe(data => {
       this.errorMsg = "";
     })
+  }
+
+  ngOnDestroy() {
+    this.scrollEvent.unsubscribe();
   }
 
   private fetchPosts() {
