@@ -26,3 +26,11 @@
 .post-container {
    overflow: hidden;
 }
+
+.card-title.col {
+   width: 80%;
+}
+
+.comments {
+   width: 20%;
+}
